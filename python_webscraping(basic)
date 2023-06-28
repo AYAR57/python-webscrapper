@@ -1,1 +1,32 @@
+# we need to import some lib like requests for https requests ans beautifulsoup
+import requests
+from bs4 import BeautifulSoup
+
+# now url for the site that you want to scrap
+url = "https://amazon.com"
+
+# after that you have to give https requests using get method
+r = requests.get(url)
+
+#getting html content 
+htmlContent = r.content
+
+# we are printing that htmlContent using print statement
+#print(htmlContent)  -----> you can remove this comment for the output
+
+
+# now we have parsed that html content to beautifulsoup 
+soup = BeautifulSoup(htmlContent, 'html.parser')
+
+# you can print that soup variable to see the output 
+#print(soup)
+
+# printing title 
+title = soup.title 
+print(title)  # this print statement give you output as a tag so if you want output as a simple text you need to use one method get_text()
+
+
+print(title.get_text())
+
+
 
